@@ -1,22 +1,24 @@
 package modeloDao;
 
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.util.*;
 
 import modeloDto.Vendedor;
 
 public class VendedorDao {
-	private List<Vendedor> listaVendedor;
+
+	private ArrayList<Vendedor>listaVendedor;
+	
 	private ObjectInputStream entrada;
     private ObjectOutputStream salida;
     private String archivo;
-	
-	public VendedorDao() {
+    
+    public VendedorDao() {
         this.archivo = "vendedor";
         File file = new File (archivo);
         if (file.isFile()) {
@@ -32,8 +34,8 @@ public class VendedorDao {
             listaVendedor = new ArrayList<>();
         }
     }
-        
-	 /*
+    
+    /*
      * Guarda los datos en la capa de persistencia
      */
 
@@ -53,8 +55,10 @@ public class VendedorDao {
       * @return
       */
 	
-	public boolean create (Vendedor vendedor) {
-		return listaVendedor.add(vendedor);
+	public boolean Create (Vendedor vendedor) {
+		 listaVendedor.add(vendedor);
+		 guardar();
+	     return true;
 	}
 	
 	/*
@@ -63,7 +67,7 @@ public class VendedorDao {
      * @return
 	 */
 	
-	public Vendedor read (int id) {
+	public Vendedor Read (int id) {
 		for (Vendedor vendedor : listaVendedor) {
             if (vendedor.getIdentificacion() == id) {
                 return vendedor;
@@ -86,8 +90,8 @@ public class VendedorDao {
      * @param vendedor parametro necesario para saber cual vendedor eliminar dentro de la lista
      * @return
      */
-    public boolean Delete(Vendedor vendedor){
-        listaVendedor.remove(vendedor);
+    public boolean Delete(Vendedor repartidor){
+        listaVendedor.remove(repartidor);
         guardar();
         return true;
     }
@@ -95,7 +99,7 @@ public class VendedorDao {
     /**
      * @return
      */
-    public List<Vendedor> readAll(){
+    public ArrayList<Vendedor> readAll(){
         return listaVendedor;
     }
     
@@ -104,19 +108,31 @@ public class VendedorDao {
      * @param vendedor parametro necesario para conocer su posicion
      * @return
      */
-    public int buscarIndex(Vendedor vendedor){
+    public int BuscarIndex(Vendedor vendedor){
         return listaVendedor.indexOf(vendedor);
     }
     
-    public double calcularSalario(Vendedor vendedor, Integer TotalVentas){
+    public double CalcularSalario(Vendedor vendedor){
+    	
+    	double descuento = vendedor.getSalarioBase()*0.10;
+    	double bonificacion;
+    	double comision =vendedor.getTotalVentas()*0.15;
     	
     	if(LocalDate.now().getYear() - vendedor.getAnio_ingreso() > 20){
-            return (((vendedor.getSalarioBase() + ((vendedor.getTotalVentas() * 0.15))) - (vendedor.getSalarioBase() * 0.10) + 100000));
+            bonificacion = 100000;
+        }else {
+        	bonificacion=0;
         }
-    	else {
-    		return ((vendedor.getSalarioBase() + ((vendedor.getTotalVentas() * 0.15))) - (vendedor.getSalarioBase() * 0.10));
-        }
+    	vendedor.setDescuento(descuento);
+        vendedor.setBonificacion(bonificacion);
+        vendedor.setComision(comision);
+        
+        double salario;
+        
+        salario=vendedor.getSalarioBase()+comision+bonificacion-descuento;
+        
+        vendedor.setSalario(salario);
+        
+        return salario;
     }
 }
-   
-
