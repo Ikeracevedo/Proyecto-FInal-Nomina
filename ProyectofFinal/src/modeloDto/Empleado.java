@@ -8,7 +8,6 @@ public class Empleado implements Serializable{
     protected String nombre;
     protected int edad;
     protected int anio_ingreso;
-    protected double descuento;
     protected final double salarioBase = 1000;
 
     
@@ -21,9 +20,9 @@ public class Empleado implements Serializable{
         this.nombre = nombre;
         this.edad = edad;
         this.anio_ingreso = anio_ingreso;
-        this.descuento = descuento;
     }
 
+	
 	public int getIdentificacion() {
 		return identificacion;
 	}
