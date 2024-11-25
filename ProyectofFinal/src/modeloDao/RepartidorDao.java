@@ -11,13 +11,15 @@ import java.util.List;
 import modeloDto.Repartidor;
 
 public class RepartidorDao {
-    public static final long serialVersionUID = 1L;
-    private List<Repartidor> listaRepartidores;
+    
+	
+    private ArrayList<Repartidor> listaRepartidores;
+    
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
     private String archivo;
 
-    public RepartidorDao() {
+	public RepartidorDao() {
         this.archivo = "Repartidor";
         File file = new File(archivo);
         if (file.isFile()) {
@@ -30,11 +32,14 @@ public class RepartidorDao {
                 guardar();
             }
         } else {
-            this.listaRepartidores = new ArrayList<>();
-            guardar();
+            listaRepartidores = new ArrayList<>();
+            
         }
         
     }
+	/*
+     * Guarda los datos en la capa de persistencia
+     */
 
     public void guardar() {
         try {
@@ -43,12 +48,14 @@ public class RepartidorDao {
             this.salida.close();
             System.out.println("Datos guardados correctamente.");
         } catch (Exception e) {
-            System.out.println("Error al guardar los datos: " + e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
     public boolean create(Repartidor repartidor) {
-        return listaRepartidores.add(repartidor);
+        listaRepartidores.add(repartidor);
+        guardar();
+        return true;
     }
 
     public Repartidor read(int id) {
@@ -81,16 +88,23 @@ public class RepartidorDao {
 
     public double calcularSalario(Repartidor repartidor, Integer zona) {
         double salario;
-        double descuento;
-
+        double descuento = repartidor.getSalarioBase()*0.08;
+        double bonificacion;
+        
         if ((repartidor.getZona() == 5) && (LocalDate.now().getYear() - repartidor.getAnio_ingreso() > 5)) {
-            salario = ((repartidor.getSalarioBase() + (repartidor.getNumeroDeRepartos() * 10000)) + 50000);
-            descuento = salario * 0.08;
-            return salario - descuento;
-        } else {
-            salario = (repartidor.getSalarioBase() + (repartidor.getNumeroDeRepartos() * 10000));
-            descuento = salario * 0.08;
-            return salario - descuento;
+            bonificacion = 50000;
+        }else {
+        	bonificacion = 0;
         }
+        
+        //Calculamos valores por separado
+        salario = (((repartidor.getSalarioBase() + (repartidor.getNumeroDeRepartos() * 10000)) - descuento) + bonificacion);
+
+        //Enviamos los valries
+        repartidor.setDescuento(descuento);
+		repartidor.setBonificacion(bonificacion);
+		
+		return salario;
     }
+    
 }
