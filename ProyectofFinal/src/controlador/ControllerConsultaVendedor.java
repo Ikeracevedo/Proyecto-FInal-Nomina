@@ -35,7 +35,7 @@ public class ControllerConsultaVendedor implements ActionListener{
 			for(int i = 0 ; i < filas ; i++) {
 				modeloTabla.removeRow(0);
 			}
-			
+			 
 			for(Vendedor vendedor : listaVendedores) {
 				modelo.CalcularSalario(vendedor);
 				salariototalGeneral += vendedor.getSalario();
