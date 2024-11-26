@@ -40,7 +40,7 @@ public class ControllerInfoRepart implements ActionListener {
 			
 			for(Repartidor repartidor : listaRepartidores) {
 				double salario = modelo.calcularSalario(repartidor, repartidor.getZona());
-				Object[] fila = {repartidor.getIdentificacion(), repartidor.getNombre(), repartidor.getAnio_ingreso(), repartidor.getSalarioBase(), repartidor.getZona() , repartidor.getNumeroDeRepartos(),"NN", salario};
+				Object[] fila = {repartidor.getIdentificacion(), repartidor.getNombre(), repartidor.getAnio_ingreso(), repartidor.getSalarioBase(), repartidor.getZona() , repartidor.getNumeroDeRepartos(), repartidor.getDescuento(), salario};
 				modeloTabla.addRow(fila);
 			}
 		}

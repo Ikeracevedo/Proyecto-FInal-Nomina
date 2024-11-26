@@ -1,5 +1,4 @@
 package controlador;
-
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import javax.swing.JOptionPane;
@@ -39,15 +38,15 @@ package controlador;
 	  	            int anio = Integer.valueOf(vista.textFieldIngreso.getText());
 	  	            int ventas = Integer.valueOf(vista.textFieldTotalVentas.getText());
 	  	            
-	  	            vendedor =new Vendedor(id,nombre,edad,anio,ventas);
+	  	            vendedor = new Vendedor(id,nombre,edad,anio,ventas);
 	  	            vendedor.setIdentificacion(Integer.valueOf(vista.textFieldId.getText()));
 		            vendedor.setNombre(vista.textFieldNombre.getText());
 		            vendedor.setEdad(Integer.valueOf(vista.textFieldEdad.getText()));
 		            vendedor.setAnio_ingreso(Integer.valueOf(vista.textFieldIngreso.getText()));
 		            vendedor.setTotalVentas(Integer.valueOf(vista.textFieldTotalVentas.getText()));
 		            
-		            if(modelo.create(vendedor)) {
-		            	JOptionPane.showMessageDialog(null, "Se agrego el repartidor");  
+		            if(modelo.Create(vendedor)) {
+		            	JOptionPane.showMessageDialog(null, "Se agrego el vendedor ");  
 		            }
 		         
 		  	     } catch (Exception ee) {
@@ -76,14 +75,14 @@ package controlador;
 		        try {
 		            int id = Integer.valueOf(idText); // Convierte el ID a un entero
 		            
-		            vendedor = modelo.read(id); // Busca el repartidor en la base de datos
+		            vendedor = modelo.Read(id); // Busca el repartidor en la base de datos
 	
 		            if (vendedor == null) {
 		                JOptionPane.showMessageDialog(null, "El repartidor no existe.");
 		                limpiarCampos(); 
 		            }
 		            // Si el repartidor existe, llena los campos con sus datos
-		            index = modelo.buscarIndex(vendedor);
+		            index = modelo.BuscarIndex(vendedor);
 		            vista.textFieldNombre.setText(vendedor.getNombre());
 		            vista.textFieldEdad.setText(String.valueOf(vendedor.getEdad()));
 		            vista.textFieldIngreso.setText(String.valueOf(vendedor.getAnio_ingreso()));
