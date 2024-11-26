@@ -7,12 +7,11 @@ public class Repartidor extends Empleado implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 4105220076845426009L;
+	private static final long serialVersionUID = 1L;
 	private int numeroDeRepartos;
     private int zona;
     private double salario;
     private double bonificacion;
-    private double descuento;
     
     public Repartidor() {
 		// TODO Auto-generated constructor stub
@@ -21,13 +20,11 @@ public class Repartidor extends Empleado implements Serializable {
 	public Repartidor(int identificacion, String nombre, int edad, int anio_ingreso, int numeroDeRepartos, int zona) {
 		super(identificacion, nombre, edad, anio_ingreso);
 		// TODO Auto-generated constructor stub
-		this.descuento = descuento;
 		this.numeroDeRepartos = numeroDeRepartos;
 		this.zona = comprobadorZona(zona);
-		this.bonificacion = bonificacion;
 	}
 	
-	private int comprobadorZona(int zona) {
+	public int comprobadorZona(int zona) {
 		if(zona>=1&&zona<=5) {
 			return zona;
 		}else {
@@ -36,14 +33,6 @@ public class Repartidor extends Empleado implements Serializable {
 	}
 
 	
-	public double getDescuento() {
-		return descuento;
-	}
-
-	public void setDescuento(double descuento) {
-		this.descuento = descuento;
-	}
-
 	public int getNumeroDeRepartos() {
 		return numeroDeRepartos;
 	}

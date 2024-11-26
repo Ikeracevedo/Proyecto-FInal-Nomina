@@ -12,29 +12,11 @@ public class Vendedor extends Empleado implements Serializable  {
 	private double salario;
 	private double comision;
 	private double bonificacion;
-	private double descuento;
 	
-	public Vendedor() {
-	}	
-
-
 	public Vendedor(int identificacion, String nombre, int edad, int anio_ingreso, int totalVetas) {
-		// TODO Auto-generated constructor stub
 		super(identificacion, nombre, edad, anio_ingreso);
 		this.totalVentas = totalVetas;
-		this.descuento = descuento;
 	}
-
-
-	public double getDescuento() {
-		return descuento;
-	}
-
-	public void setDescuento(double descuento) {
-		this.descuento = descuento;
-	}
-
-
 
 	public int getTotalVentas() {
 		return totalVentas;
