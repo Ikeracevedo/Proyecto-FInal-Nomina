@@ -16,10 +16,22 @@ import java.awt.event.ActionEvent;
 
 public class VistaMVendedor extends JFrame {
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTable table;
-
+	public static final long serialVersionUID = 1L;
+	public JPanel contentPane;
+	public JTable table;
+	public JLabel lblTitulo;
+	public JLabel lblIdentificacin;
+	public JLabel lblNombre;
+	public JLabel lblIngreso;
+	public JLabel lblSalario;
+	public JLabel lblTotVentas;
+	public JLabel lblTotalComision;
+	public JButton btnConsultar;
+	public JButton btnLimpiar;
+	
+	
+	
+	
 	
 
 	/**
@@ -34,7 +46,7 @@ public class VistaMVendedor extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblTitulo = new JLabel("Mayores Vendedores");
+		lblTitulo = new JLabel("Mayores Vendedores");
 		lblTitulo.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblTitulo.setBounds(494, 45, 285, 65);
 		contentPane.add(lblTitulo);
@@ -53,50 +65,46 @@ public class VistaMVendedor extends JFrame {
 		table.setBounds(182, 167, 891, 48);
 		contentPane.add(table);
 		
-		JLabel lblIdentificacin = new JLabel("Identificación");
+		lblIdentificacin = new JLabel("Identificación");
 		lblIdentificacin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblIdentificacin.setBounds(202, 143, 100, 14);
 		contentPane.add(lblIdentificacin);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNombre.setBounds(357, 143, 100, 14);
 		contentPane.add(lblNombre);
 		
-		JLabel lblIdentificacin_1_1 = new JLabel("Ingreso");
-		lblIdentificacin_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIdentificacin_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblIdentificacin_1_1.setBounds(510, 137, 100, 26);
-		contentPane.add(lblIdentificacin_1_1);
+		lblIngreso = new JLabel("Ingreso");
+		lblIngreso.setHorizontalAlignment(SwingConstants.CENTER);
+		lblIngreso.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblIngreso.setBounds(510, 137, 100, 26);
+		contentPane.add(lblIngreso);
 		
-		JLabel lblIdentificacin_1_1_1 = new JLabel("Salario basico");
-		lblIdentificacin_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIdentificacin_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblIdentificacin_1_1_1.setBounds(650, 143, 100, 14);
-		contentPane.add(lblIdentificacin_1_1_1);
+		lblSalario = new JLabel("Salario basico");
+		lblSalario.setHorizontalAlignment(SwingConstants.CENTER);
+		lblSalario.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSalario.setBounds(650, 143, 100, 14);
+		contentPane.add(lblSalario);
 		
-		JLabel lblIdentificacin_1_1_2 = new JLabel("Total de ventas");
-		lblIdentificacin_1_1_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblIdentificacin_1_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblIdentificacin_1_1_2.setBounds(793, 143, 119, 14);
-		contentPane.add(lblIdentificacin_1_1_2);
+		lblTotVentas = new JLabel("Total de ventas");
+		lblTotVentas.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTotVentas.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTotVentas.setBounds(793, 143, 119, 14);
+		contentPane.add(lblTotVentas);
 		
-		JLabel lblIdentificacin_1_1_3 = new JLabel("Total comision");
-		lblIdentificacin_1_1_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblIdentificacin_1_1_3.setBounds(946, 143, 119, 14);
-		contentPane.add(lblIdentificacin_1_1_3);
+		lblTotalComision = new JLabel("Total comision");
+		lblTotalComision.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblTotalComision.setBounds(946, 143, 119, 14);
+		contentPane.add(lblTotalComision);
+		btnConsultar = new JButton("Consultar");
+		btnConsultar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		
-		JButton btnNewButton = new JButton("Consultar");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setBounds(458, 275, 119, 32);
-		contentPane.add(btnNewButton);
+		btnConsultar.setBounds(458, 275, 119, 32);
+		contentPane.add(btnConsultar);
 		
-		JButton btnLimpiar = new JButton("Limpiar");
+		btnLimpiar = new JButton("Limpiar");
 		btnLimpiar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnLimpiar.setBounds(683, 275, 119, 32);
 		contentPane.add(btnLimpiar);

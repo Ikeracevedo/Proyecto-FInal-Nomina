@@ -36,7 +36,7 @@ public class VistaConsultaVendedor extends JFrame {
 	@SuppressWarnings("serial")
 	public VistaConsultaVendedor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 814, 396);
+		setBounds(100, 100, 1293, 742);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -124,7 +124,8 @@ public class VistaConsultaVendedor extends JFrame {
 		contentPane.add(lblTotalGeneral);
 		
 		textFieldTotalGeneral = new JTextField();
-		textFieldTotalGeneral.setBounds(560, 306, 86, 20);
+		textFieldTotalGeneral.setEditable(false);
+		textFieldTotalGeneral.setBounds(560, 306, 189, 20);
 		contentPane.add(textFieldTotalGeneral);
 		textFieldTotalGeneral.setColumns(10);
 		

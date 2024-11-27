@@ -46,24 +46,24 @@ public class VistaRepartidor extends JFrame {
 		contentPane.setLayout(null);
 		
 		LabelId = new JLabel("Identificacion");
-		LabelId.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelId.setBounds(72, 134, 136, 40);
+		LabelId.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelId);
 		
 		LabelRepartidores = new JLabel("REPARTIDORES");
-		LabelRepartidores.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		LabelRepartidores.setBounds(504, 31, 214, 54);
+		LabelRepartidores.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		contentPane.add(LabelRepartidores);
 		
 		LabelNombre = new JLabel("Nombre");
-		LabelNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelNombre.setBounds(72, 188, 118, 25);
+		LabelNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelNombre);
 		
 		LabelEdad = new JLabel("Edad");
-		LabelEdad.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		LabelEdad.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelEdad.setBounds(72, 232, 107, 25);
+		LabelEdad.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		LabelEdad.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelEdad);
 		
 		textFieldId = new JTextField();
@@ -72,18 +72,18 @@ public class VistaRepartidor extends JFrame {
 		textFieldId.setColumns(10);
 		
 		LabelIngreso = new JLabel("Año de ingreso");
-		LabelIngreso.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelIngreso.setBounds(72, 273, 165, 25);
+		LabelIngreso.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelIngreso);
 		
 		LabelRepartos = new JLabel("Numero de repartos");
-		LabelRepartos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelRepartos.setBounds(72, 308, 188, 32);
+		LabelRepartos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelRepartos);
 		
 		LabelZona = new JLabel("Zona");
-		LabelZona.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		LabelZona.setBounds(72, 346, 143, 39);
+		LabelZona.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(LabelZona);
 		
 		textFieldNombre = new JTextField();
@@ -107,31 +107,31 @@ public class VistaRepartidor extends JFrame {
 		textFieldRepartos.setColumns(10);
 		
 		comboBoxZona = new JComboBox();
+		comboBoxZona.setBounds(366, 359, 89, 21);
 		comboBoxZona.setEditable(true);
 		comboBoxZona.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		comboBoxZona.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}));
 		comboBoxZona.setToolTipText("");
-		comboBoxZona.setBounds(366, 359, 89, 21);
 		contentPane.add(comboBoxZona);
 		
 		btnAgregar = new JButton("Agregar nuevo");
-		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnAgregar.setBounds(98, 438, 194, 46);
+		btnAgregar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnAgregar);
 		
 		btnModificar = new JButton("Modificar");
-		btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnModificar.setBounds(366, 438, 194, 40);
+		btnModificar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnModificar);
 		
 		btnBorrar = new JButton("Borrar");
-		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnBorrar.setBounds(644, 438, 194, 40);
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		contentPane.add(btnBorrar);
 		
 		btnBuscar = new JButton("Buscar");
-		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBuscar.setBounds(719, 140, 107, 33);
+		btnBuscar.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		contentPane.add(btnBuscar);
 	}
 }
