@@ -6,12 +6,13 @@ import java.io.Serializable;
 public class Repartidor extends Empleado implements Serializable {
 	/**
 	 * 
-	 */
+	 */ 
 	private static final long serialVersionUID = 1L;
 	private int numeroDeRepartos;
     private int zona;
     private double salario;
     private double bonificacion;
+    private double comision;
     
     public Repartidor() {
 		// TODO Auto-generated constructor stub
@@ -24,7 +25,7 @@ public class Repartidor extends Empleado implements Serializable {
 		this.zona = comprobadorZona(zona);
 	}
 	
-	public int comprobadorZona(int zona) {
+	private int comprobadorZona(int zona) {
 		if(zona>=1&&zona<=5) {
 			return zona;
 		}else {
@@ -58,6 +59,14 @@ public class Repartidor extends Empleado implements Serializable {
 
 	public void setBonificacion(double bonificacion) {
 		this.bonificacion = bonificacion;
+	}
+
+	public double getComision() {
+		return comision;
+	}
+
+	public void setComision(double comision) {
+		this.comision = comision;
 	}
 
 	
