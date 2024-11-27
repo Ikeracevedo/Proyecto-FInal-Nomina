@@ -1,9 +1,9 @@
-package main;
+package Main;
+
 import controlador.ControllerConsultaVendedor;
-import controlador.ControllerVendedor;
 import vista.VistaConsultaVendedor;
-import vista.VistaVendedor;
-public class Main {
+
+public class MainConsultaVendedores {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
