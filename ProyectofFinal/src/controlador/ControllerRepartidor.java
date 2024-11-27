@@ -13,7 +13,7 @@ package controlador;
 		  private RepartidorDao modelo;
 		  private VistaRepartidor vista;
 		  private int index;
-	
+	 
 		    public ControllerRepartidor(VistaRepartidor vista) {
 		        this.vista = vista;
 		        this.modelo = new RepartidorDao();
@@ -23,10 +23,10 @@ package controlador;
 		        this.vista.btnBuscar.addActionListener(this);
 		        this.vista.comboBoxZona.addActionListener(this);
 		        this.vista.setVisible(true);
-	
+	 
 		    }
 	
-		    @Override
+		    @Override     
 		    public void actionPerformed(ActionEvent e){
 		        /*
 		         * Registra un nuevo repartidor
@@ -44,11 +44,6 @@ package controlador;
   	            
   	            repartidor = new Repartidor(id,nombre,edad,anio,repartos,zona);
   	            
-  	            repartidor.setIdentificacion(Integer.valueOf(vista.textFieldId.getText()));
-	            repartidor.setNombre(vista.textFieldNombre.getText());
-	            repartidor.setEdad(Integer.valueOf(vista.textFieldEdad.getText()));
-	            repartidor.setAnio_ingreso(Integer.valueOf(vista.textFieldIngreso.getText()));
-	            repartidor.setZona(Integer.valueOf((String) vista.comboBoxZona.getSelectedItem()));
 	            
 	            if(modelo.create(repartidor)) {
 	            	JOptionPane.showMessageDialog(null, "Se agrego el repartidor");  

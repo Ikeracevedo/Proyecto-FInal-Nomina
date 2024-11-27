@@ -50,8 +50,8 @@ public class ControllerInfoRepart implements ActionListener {
 			double total = 0;
 			
 			for(Repartidor repartidor : listaRepartidores) {
-				double salario = modelo.calcularSalario(repartidor, repartidor.getZona());
-				total += salario;
+				//double salario = modelo.calcularSalario(repartidor, repartidor.getZona());
+				total += repartidor.getSalario();
 			}
 			
 			vista.textFieldValorPagar.setText(String.valueOf(total));

@@ -34,13 +34,13 @@ public class ControllerConsultaVendedor implements ActionListener{
 			
 			for(int i = 0 ; i < filas ; i++) {
 				modeloTabla.removeRow(0);
-			}
+			} 
 			 
 			for(Vendedor vendedor : listaVendedores) {
-				modelo.CalcularSalario(vendedor);
-				salariototalGeneral += vendedor.getSalario();
+				//modelo.CalcularSalario(vendedor);
 				Object[] fila = {vendedor.getIdentificacion(), vendedor.getNombre(), vendedor.getAnio_ingreso(), vendedor.getSalarioBase(), vendedor.getTotalVentas(),vendedor.getComision(),vendedor.getDescuento(), vendedor.getSalario()};
 				modeloTabla.addRow(fila);
+				salariototalGeneral += vendedor.getSalario();
 			}
 			
 			vista.textFieldTotalGeneral.setText(String.valueOf(salariototalGeneral));

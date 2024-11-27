@@ -39,11 +39,7 @@ package controlador;
 	  	            int ventas = Integer.valueOf(vista.textFieldTotalVentas.getText());
 	  	            
 	  	            vendedor = new Vendedor(id,nombre,edad,anio,ventas);
-	  	            vendedor.setIdentificacion(Integer.valueOf(vista.textFieldId.getText()));
-		            vendedor.setNombre(vista.textFieldNombre.getText());
-		            vendedor.setEdad(Integer.valueOf(vista.textFieldEdad.getText()));
-		            vendedor.setAnio_ingreso(Integer.valueOf(vista.textFieldIngreso.getText()));
-		            vendedor.setTotalVentas(Integer.valueOf(vista.textFieldTotalVentas.getText()));
+	 
 		            
 		            if(modelo.Create(vendedor)) {
 		            	JOptionPane.showMessageDialog(null, "Se agrego el vendedor ");  
