@@ -79,7 +79,7 @@ public class VendedorDao {
      * Funcion para actualizar los datos del vendedor
      * @param index parametro util para conocer la posicion del vendedor en la lista
      * @param vendedor el objeto de la clase vendedor
-     */
+     */ 
     public void Update(int index , Vendedor vendedor){
             listaVendedor.set(index, vendedor);
             guardar();
@@ -132,6 +132,8 @@ public class VendedorDao {
         salario=vendedor.getSalarioBase()+comision+bonificacion-descuento;
         
         vendedor.setSalario(salario);
+        
+        guardar();
         
         return salario;
     }

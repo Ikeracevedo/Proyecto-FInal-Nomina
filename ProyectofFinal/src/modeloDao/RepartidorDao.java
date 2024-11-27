@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import modeloDto.Repartidor;
 
+
 public class RepartidorDao {
     
-	
+	 
     private ArrayList<Repartidor> listaRepartidores;
-    
     private ObjectInputStream entrada;
     private ObjectOutputStream salida;
     private String archivo;
@@ -78,7 +78,7 @@ public class RepartidorDao {
         return true;
     }
 
-    public List<Repartidor> readAll() {
+    public ArrayList<Repartidor> readAll() {
         return listaRepartidores;
     }
 
@@ -90,6 +90,7 @@ public class RepartidorDao {
         double salario;
         double descuento = repartidor.getSalarioBase()*0.08;
         double bonificacion;
+        double comision;
         
         if ((repartidor.getZona() == 5) && (LocalDate.now().getYear() - repartidor.getAnio_ingreso() > 5)) {
             bonificacion = 50000;
@@ -98,11 +99,13 @@ public class RepartidorDao {
         }
         
         //Calculamos valores por separado
-        salario = (((repartidor.getSalarioBase() + (repartidor.getNumeroDeRepartos() * 10000)) - descuento) + bonificacion);
+        comision = (repartidor.getNumeroDeRepartos()*10000);
+        salario = (((repartidor.getSalarioBase() + comision) - descuento) + bonificacion);
 
         //Enviamos los valries
         repartidor.setDescuento(descuento);
 		repartidor.setBonificacion(bonificacion);
+		repartidor.setComision(comision);
 		
 		return salario;
     }
